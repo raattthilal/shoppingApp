@@ -1,0 +1,91 @@
+<section>
+<div class="row">
+ 
+  <div class="col-md-5 ml-auto mr-auto">
+   
+      <form #userForm ="ngForm"  (ngSubmit)="userForm.valid && login(userForm.value)" >
+        <div class="card shadow" style="border-radius: 20px;">
+          <div class="mr-auto ml-auto">
+            <h1 class="text-success font-weight-bold mt-2">Login</h1>
+          </div>
+          <div class="row mt-5">
+           <div class="col-md-12">
+             <h5 class="text-muted font-weight-bold ml-5">Username</h5>
+             <input name="username" required #username ="ngModel" type="text" [class.is-invalid]= "username.invalid  && username.touched" class="form-control col-md-10 mr-auto ml-auto" placeholder="User name" [(ngModel)]="data.username">
+             <label class="text-danger" *ngIf="userForm.submitted && username.errors?.required" >username name required</label>   
+            </div>
+          
+             <div class="col-md-12 mt-3">
+               <h5 class="text-muted font-weight-bold ml-5">Password</h5>
+               <input name="password" required #password ="ngModel" type="password" [class.is-invalid]= "password.invalid  && password.touched" class="form-control col-md-10 mr-auto ml-auto" placeholder="password " [(ngModel)]="data.password">
+               <label class="text-danger" *ngIf="userForm.submitted && password.errors?.required" >password required</label>   
+             </div>
+         
+          </div>
+         
+         <div class="mt-3 mb-4 ml-auto mr-auto">
+          <button class="btn btn-success shadow rounded-pill" type="submit">Login</button>
+         </div>
+         <div class="col-md-12 mb-3" >
+
+           <a href="" class="float-right btn rounded-pill" style="background: blue;" data-toggle="modal" data-target="#exampleModalCenter">
+            Register User
+          </a>
+         </div>
+        </div>
+
+      </form>
+      
+   
+  </div>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title text-success font-weight-bold text-center" id="exampleModalCenterTitle">Register New User</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #userForm1 ="ngForm"  (ngSubmit)="userForm1.valid && regUser(userForm1.value)" >
+          
+            
+          <div class="row mt-5">
+            <div class="col-md-12">
+              <h5 class="text-success font-weight-bold ml-4">Username</h5>
+              <input name="username" required #username ="ngModel" type="text" [class.is-invalid]= "username.invalid  && username.touched" class="form-control col-md-10 mr-auto ml-auto" placeholder="User name" [(ngModel)]="regData.username">
+              <label class="text-danger" *ngIf="userForm1.submitted && username.errors?.required" >username name required</label>   
+            </div>
+            
+            <div class="col-md-12 mt-3">
+              <h5 class="text-success font-weight-bold ml-4">Phone</h5>
+              <input name="phone" required #phone ="ngModel" type="number" [class.is-invalid]= "phone.invalid  && phone.touched" class="form-control col-md-10 mr-auto ml-auto" placeholder="phone " [(ngModel)]="regData.phone">
+              <label class="text-danger" *ngIf="userForm1.submitted && phone.errors?.required" >phone required</label>   
+            </div>
+            <div class="col-md-12 mt-3">
+              <h5 class="text-success font-weight-bold ml-4">Password</h5>
+              <input name="password" required #password ="ngModel" type="password" [class.is-invalid]= "password.invalid  && password.touched" class="form-control col-md-10 mr-auto ml-auto" placeholder="password " [(ngModel)]="regData.password">
+              <label class="text-danger" *ngIf="userForm1.submitted && password.errors?.required" >password required</label>   
+            </div>
+           
+            <button type="button" class="btn btn-primary shadow mr-auto ml-auto mt-3" type="submit">Register</button>
+          </div>
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+   
+    </div>
+  </div>
+</div>
+</div>
+
+</section>
